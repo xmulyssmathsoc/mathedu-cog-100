@@ -1,0 +1,74 @@
+{
+  "dataset": "MathEdu-Cog 100",
+  "version": "1.0.0",
+  "date": "2026-11-15",
+  "status": "synthetic_seed_for_research",
+  "core_items": 100,
+  "domain_counts": {
+    "NUM": 10,
+    "ALG": 12,
+    "FUN": 12,
+    "GEO": 10,
+    "TRI": 8,
+    "PRO": 10,
+    "STA": 8,
+    "CAL": 12,
+    "LIN": 10,
+    "LOG": 8
+  },
+  "difficulty_counts": {
+    "D1": 15,
+    "D2": 25,
+    "D3": 25,
+    "D4": 20,
+    "D5": 15
+  },
+  "record_counts": {
+    "provenance": 1,
+    "concept": 80,
+    "item": 100,
+    "solution": 100,
+    "error_pattern": 200,
+    "cognitive_hypothesis": 400,
+    "diagnostic_probe": 200,
+    "teaching_intervention": 100,
+    "student_observation": 400,
+    "cognitive_inference": 200,
+    "teaching_session": 100,
+    "learning_outcome": 100,
+    "teaching_preference": 100
+  },
+  "total_records": 2081,
+  "training_exports": {
+    "tutoring_sft": 300,
+    "cognitive_diagnosis_sft": 300,
+    "label_generation_sft": 100,
+    "teaching_preferences": 100,
+    "synthetic_smoke_test": 105
+  },
+  "question_split_counts": {
+    "train": 70,
+    "validation": 15,
+    "synthetic_test": 15
+  },
+  "item_formats": {
+    "explanation": 33,
+    "modeling": 14,
+    "free_response": 32,
+    "proof": 21
+  },
+  "provenance": {
+    "actual_weak_model_calls": 0,
+    "real_student_observations": 0,
+    "expert_approved": 0,
+    "generator_model": "GPT-6",
+    "simulated_dialogues_are_scripted": true
+  },
+  "source_verification": "jsonschema validated; refer to report for actual math spot checks",
+  "known_limitations": [
+    "所有学生行为与学习效果都未经过真人数据校准",
+    "模型设计的诊断价值不等于实测区分度",
+    "偏好是规范性构造，不是教学干预的因果证据",
+    "同一模型生成/自校验不是独立专家审核"
+  ]
+}

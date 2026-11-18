@@ -1,0 +1,410 @@
+{
+  "method": "Targeted SymPy/Python checks for each core item",
+  "interpretation": "One central identity, value, bounded witness, or logical structure per item. This is NOT independent review or a proof of every wording, solution, error annotation, or simulated student response.",
+  "total_items": 100,
+  "executed": 100,
+  "passed": 100,
+  "failed": 0,
+  "check_results": {
+    "NUM-001": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "NUM-002": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "NUM-003": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "NUM-004": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "NUM-005": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "NUM-006": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "NUM-007": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "NUM-008": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "NUM-009": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "NUM-010": {
+      "status": "passed",
+      "scope": "bounded_exhaustive"
+    },
+    "ALG-001": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "ALG-002": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "ALG-003": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "ALG-004": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "ALG-005": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "ALG-006": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "ALG-007": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "ALG-008": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "ALG-009": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "ALG-010": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "ALG-011": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "ALG-012": {
+      "status": "passed",
+      "scope": "bounded_exhaustive"
+    },
+    "FUN-001": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "FUN-002": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "FUN-003": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "FUN-004": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "FUN-005": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "FUN-006": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "FUN-007": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "FUN-008": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "FUN-009": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "FUN-010": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "FUN-011": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "FUN-012": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "GEO-001": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "GEO-002": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "GEO-003": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "GEO-004": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "GEO-005": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "GEO-006": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "GEO-007": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "GEO-008": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "GEO-009": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "GEO-010": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "TRI-001": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "TRI-002": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "TRI-003": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "TRI-004": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "TRI-005": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "TRI-006": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "TRI-007": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "TRI-008": {
+      "status": "passed",
+      "scope": "bounded_exhaustive"
+    },
+    "PRO-001": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "PRO-002": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "PRO-003": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "PRO-004": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "PRO-005": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "PRO-006": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "PRO-007": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "PRO-008": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "PRO-009": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "PRO-010": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "STA-001": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "STA-002": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "STA-003": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "STA-004": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "STA-005": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "STA-006": {
+      "status": "passed",
+      "scope": "illustrative_countermodel"
+    },
+    "STA-007": {
+      "status": "passed",
+      "scope": "illustrative_countermodel"
+    },
+    "STA-008": {
+      "status": "passed",
+      "scope": "model_based_numeric"
+    },
+    "CAL-001": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "CAL-002": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "CAL-003": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "CAL-004": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "CAL-005": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "CAL-006": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "CAL-007": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "CAL-008": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "CAL-009": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "CAL-010": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "CAL-011": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "CAL-012": {
+      "status": "passed",
+      "scope": "finite_lower_bound"
+    },
+    "LIN-001": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "LIN-002": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "LIN-003": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "LIN-004": {
+      "status": "passed",
+      "scope": "bounded_exhaustive"
+    },
+    "LIN-005": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "LIN-006": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "LIN-007": {
+      "status": "passed",
+      "scope": "bounded_exhaustive"
+    },
+    "LIN-008": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "LIN-009": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "LIN-010": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "LOG-001": {
+      "status": "passed",
+      "scope": "bounded_exhaustive"
+    },
+    "LOG-002": {
+      "status": "passed",
+      "scope": "bounded_exhaustive"
+    },
+    "LOG-003": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "LOG-004": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "LOG-005": {
+      "status": "passed",
+      "scope": "bounded_exhaustive"
+    },
+    "LOG-006": {
+      "status": "passed",
+      "scope": "bounded_exhaustive"
+    },
+    "LOG-007": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    },
+    "LOG-008": {
+      "status": "passed",
+      "scope": "symbolic_or_numeric"
+    }
+  }
+}

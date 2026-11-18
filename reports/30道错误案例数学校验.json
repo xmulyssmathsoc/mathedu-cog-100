@@ -1,0 +1,188 @@
+{
+  "total": 30,
+  "passed": 30,
+  "failed": 0,
+  "scope": "one or more executable key mathematical assertions for each case; not an independent review of complete written solutions or real student errors",
+  "checks": [
+    {
+      "case_id": "EC-001",
+      "check_name": "percentage_compounded_baseline",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-002",
+      "check_name": "rationality_approximation",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-003",
+      "check_name": "remainder_reduction",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-004",
+      "check_name": "rational_expression_domain",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-005",
+      "check_name": "negative_inequality",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-006",
+      "check_name": "squaring_extraneous_root",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-007",
+      "check_name": "function_domain_difference",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-008",
+      "check_name": "composition_order_domain",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-009",
+      "check_name": "one_sided_continuity",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-010",
+      "check_name": "triangle_altitude",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-011",
+      "check_name": "ssa_ambiguity",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-012",
+      "check_name": "point_line_distance",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-013",
+      "check_name": "trigonometric_quadrant_sign",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-014",
+      "check_name": "trigonometric_period",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-015",
+      "check_name": "ssa_angle_constraints",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-016",
+      "check_name": "ordered_vs_unordered_selections",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-017",
+      "check_name": "mutual_exclusivity_vs_independence",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-018",
+      "check_name": "bayes_base_rates",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-019",
+      "check_name": "median_mean_outlier",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-020",
+      "check_name": "confounded_correlation_counterexample",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-021",
+      "check_name": "interval_coverage_logic",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-022",
+      "check_name": "continuous_not_differentiable",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-023",
+      "check_name": "stationary_point_not_extremum",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-024",
+      "check_name": "harmonic_series_divergence",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-025",
+      "check_name": "matrix_product_noncommutativity",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-026",
+      "check_name": "vector_dependence",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-027",
+      "check_name": "diagonalizability",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-028",
+      "check_name": "converse_counterexample",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-029",
+      "check_name": "quantifier_negation",
+      "passed": true,
+      "error": ""
+    },
+    {
+      "case_id": "EC-030",
+      "check_name": "induction_step_identity",
+      "passed": true,
+      "error": ""
+    }
+  ]
+}

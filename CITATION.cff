@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this synthetic research seed dataset, please cite the project and clearly state its synthetic nature."
+title: "MathEdu-Cog 100: Synthetic Seed Dataset for Mathematical Cognition and AI Education"
+version: "1.1.0"
+date-released: 2026-11-17
+type: dataset
+authors:
+  - name: "XMU LYS² MathSoc"
+url: "https://github.com/xmulyssmathsoc/mathedu-cog-100"
+keywords:
+  - mathematics education
+  - cognitive diagnosis
+  - synthetic data
+  - AI tutoring

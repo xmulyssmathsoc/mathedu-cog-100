@@ -1,0 +1,2053 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/mathedu-cog/v1/record.schema.json",
+  "title": "MathEdu-Cog v1.0 record",
+  "description": "一个 JSONL 行对应一个实体记录；多个实体用 ID 连接。",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/concept"
+    },
+    {
+      "$ref": "#/$defs/item"
+    },
+    {
+      "$ref": "#/$defs/solution"
+    },
+    {
+      "$ref": "#/$defs/error_pattern"
+    },
+    {
+      "$ref": "#/$defs/cognitive_hypothesis"
+    },
+    {
+      "$ref": "#/$defs/diagnostic_probe"
+    },
+    {
+      "$ref": "#/$defs/student_observation"
+    },
+    {
+      "$ref": "#/$defs/cognitive_inference"
+    },
+    {
+      "$ref": "#/$defs/teaching_intervention"
+    },
+    {
+      "$ref": "#/$defs/teaching_session"
+    },
+    {
+      "$ref": "#/$defs/learning_outcome"
+    },
+    {
+      "$ref": "#/$defs/teaching_preference"
+    },
+    {
+      "$ref": "#/$defs/provenance"
+    }
+  ],
+  "$defs": {
+    "concept": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "concept"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provenance_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "definition": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string",
+          "enum": [
+            "arithmetic",
+            "algebra",
+            "geometry",
+            "functions",
+            "calculus",
+            "analysis",
+            "probability_statistics",
+            "linear_algebra",
+            "discrete_math",
+            "mathematical_modeling",
+            "other"
+          ]
+        },
+        "education_stage": {
+          "type": "string",
+          "enum": [
+            "primary",
+            "middle_school",
+            "high_school",
+            "undergraduate",
+            "graduate",
+            "cross_level"
+          ]
+        },
+        "prerequisite_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "concept_id": {
+                "type": "string"
+              },
+              "relation": {
+                "type": "string",
+                "enum": [
+                  "prerequisite_of",
+                  "part_of",
+                  "related_to",
+                  "generalizes",
+                  "contrasts_with"
+                ]
+              }
+            },
+            "required": [
+              "concept_id",
+              "relation"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "representations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "nonexamples": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "boundary_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "assessment_targets": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "recall",
+              "procedural",
+              "conceptual",
+              "representation",
+              "reasoning",
+              "proof",
+              "near_transfer",
+              "far_transfer",
+              "metacognition",
+              "formulate",
+              "employ",
+              "interpret_evaluate"
+            ]
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "provenance_id",
+        "label",
+        "definition",
+        "domain",
+        "education_stage"
+      ],
+      "additionalProperties": false
+    },
+    "item": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "item"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provenance_id": {
+          "type": "string"
+        },
+        "stem": {
+          "type": "string"
+        },
+        "domain": {
+          "type": "string",
+          "enum": [
+            "arithmetic",
+            "algebra",
+            "geometry",
+            "functions",
+            "calculus",
+            "analysis",
+            "probability_statistics",
+            "linear_algebra",
+            "discrete_math",
+            "mathematical_modeling",
+            "other"
+          ]
+        },
+        "education_stage": {
+          "type": "string",
+          "enum": [
+            "primary",
+            "middle_school",
+            "high_school",
+            "undergraduate",
+            "graduate",
+            "cross_level"
+          ]
+        },
+        "language": {
+          "type": "string"
+        },
+        "item_format": {
+          "type": "string",
+          "enum": [
+            "single_choice",
+            "multiple_choice",
+            "free_response",
+            "proof",
+            "explanation",
+            "error_analysis",
+            "modeling",
+            "interactive"
+          ]
+        },
+        "correct_answer": {
+          "type": "string"
+        },
+        "solution_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "rubric": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "criterion": {
+                "type": "string"
+              },
+              "weight": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": [
+              "criterion",
+              "weight"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "knowledge_requirements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "concept_id": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string",
+                "enum": [
+                  "essential",
+                  "supporting",
+                  "contextual"
+                ]
+              },
+              "evidence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "concept_id",
+              "role"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "cognitive_processes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "recall",
+              "procedural",
+              "conceptual",
+              "representation",
+              "reasoning",
+              "proof",
+              "near_transfer",
+              "far_transfer",
+              "metacognition",
+              "formulate",
+              "employ",
+              "interpret_evaluate"
+            ]
+          },
+          "minItems": 1
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "item_family_id": {
+          "type": "string"
+        },
+        "variant_of": {
+          "type": "string"
+        },
+        "variant_axis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "difficulty": {
+          "type": "object",
+          "properties": {
+            "value": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "basis": {
+              "type": "string",
+              "enum": [
+                "expert_estimate",
+                "model_estimate",
+                "empirical_irt",
+                "pilot_performance"
+              ]
+            },
+            "sample_size": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "notes": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "value",
+            "basis"
+          ],
+          "additionalProperties": false
+        },
+        "estimated_duration_sec": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "representation_modes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "text",
+              "latex",
+              "diagram",
+              "table",
+              "graph",
+              "audio",
+              "handwriting"
+            ]
+          },
+          "minItems": 0
+        },
+        "media_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "uri": {
+                "type": "string"
+              },
+              "media_type": {
+                "type": "string"
+              },
+              "alt_text": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "uri",
+              "media_type"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "licensing_notes": {
+          "type": "string"
+        },
+        "exposure_policy": {
+          "type": "string",
+          "enum": [
+            "ordinary_training",
+            "reserved_test",
+            "restricted"
+          ]
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "provenance_id",
+        "stem",
+        "domain",
+        "education_stage",
+        "item_format",
+        "correct_answer",
+        "knowledge_requirements",
+        "cognitive_processes"
+      ],
+      "additionalProperties": false
+    },
+    "solution": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "solution"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provenance_id": {
+          "type": "string"
+        },
+        "item_id": {
+          "type": "string"
+        },
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "method_id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "steps": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "step_id": {
+                      "type": "string"
+                    },
+                    "expression": {
+                      "type": "string"
+                    },
+                    "explanation": {
+                      "type": "string"
+                    },
+                    "justification": {
+                      "type": "string"
+                    },
+                    "concept_ids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "minItems": 0
+                    },
+                    "scoring_key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "step_id",
+                    "explanation",
+                    "justification"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              },
+              "final_answer": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "method_id",
+              "name",
+              "steps",
+              "final_answer"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "rubric_criteria": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "criterion_id": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "points": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "criterion_id",
+              "description",
+              "points"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "mathematical_validity_check": {
+          "type": "string",
+          "enum": [
+            "human_checked",
+            "symbolically_checked",
+            "unverified"
+          ]
+        },
+        "common_invalid_steps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "provenance_id",
+        "item_id",
+        "methods",
+        "mathematical_validity_check"
+      ],
+      "additionalProperties": false
+    },
+    "error_pattern": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "error_pattern"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provenance_id": {
+          "type": "string"
+        },
+        "item_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "observed_signature": {
+          "type": "string"
+        },
+        "surface_category": {
+          "type": "string",
+          "enum": [
+            "calculation_slip",
+            "sign_error",
+            "algebraic_manipulation",
+            "condition_ignored",
+            "rule_misapplication",
+            "logical_implication",
+            "boundary_ignored",
+            "representation_translation",
+            "proof_gap",
+            "formula_recall",
+            "incorrect_generalization",
+            "other"
+          ]
+        },
+        "wrong_answer_examples": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "first_error_location": {
+          "type": "string"
+        },
+        "candidate_hypothesis_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "notes_on_ambiguity": {
+          "type": "string"
+        },
+        "evidence_level": {
+          "type": "string",
+          "enum": [
+            "theoretical_candidate",
+            "expert_reviewed",
+            "observed_in_real_students",
+            "empirically_tested",
+            "experimentally_supported"
+          ]
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "provenance_id",
+        "observed_signature",
+        "surface_category",
+        "candidate_hypothesis_ids",
+        "evidence_level"
+      ],
+      "additionalProperties": false
+    },
+    "cognitive_hypothesis": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "cognitive_hypothesis"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provenance_id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "concept_misconception",
+            "pseudo_understanding",
+            "prerequisite_gap",
+            "procedural_gap",
+            "transient_slip",
+            "sound_understanding",
+            "insufficient_evidence"
+          ]
+        },
+        "pseudo_understanding_subtype": {
+          "type": "string",
+          "enum": [
+            "rote_recall",
+            "template_matching",
+            "surface_pattern",
+            "false_generalization",
+            "fragile_transfer",
+            "unjustified_fluency",
+            "hindsight_illusion",
+            "answer_only"
+          ]
+        },
+        "concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "positive_evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "counter_evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "alternative_explanations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "associated_error_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "diagnostic_probe_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "evidence_level": {
+          "type": "string",
+          "enum": [
+            "theoretical_candidate",
+            "expert_reviewed",
+            "observed_in_real_students",
+            "empirically_tested",
+            "experimentally_supported"
+          ]
+        },
+        "do_not_diagnose_from": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "provenance_id",
+        "label",
+        "kind",
+        "concept_ids",
+        "description",
+        "evidence_level"
+      ],
+      "additionalProperties": false
+    },
+    "diagnostic_probe": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "diagnostic_probe"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provenance_id": {
+          "type": "string"
+        },
+        "stem": {
+          "type": "string"
+        },
+        "probe_type": {
+          "type": "string",
+          "enum": [
+            "explain_reason",
+            "explain_counterexample",
+            "boundary_case",
+            "near_transfer",
+            "far_transfer",
+            "compare_contrast",
+            "error_analysis",
+            "construct_example",
+            "prove_or_disprove",
+            "alternative_representation",
+            "teach_back",
+            "confidence_calibration"
+          ]
+        },
+        "base_item_id": {
+          "type": "string"
+        },
+        "concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "hypotheses_to_distinguish": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "predicted_responses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hypothesis_id": {
+                "type": "string"
+              },
+              "expected_response_pattern": {
+                "type": "string"
+              },
+              "evidence_direction": {
+                "type": "string",
+                "enum": [
+                  "supports",
+                  "weakens",
+                  "ambiguous"
+                ]
+              },
+              "qualitative_strength": {
+                "type": "string",
+                "enum": [
+                  "weak",
+                  "moderate",
+                  "strong",
+                  "unknown"
+                ]
+              },
+              "empirical_likelihood": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "likelihood_source": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "hypothesis_id",
+              "expected_response_pattern",
+              "evidence_direction",
+              "qualitative_strength"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "correct_answer": {
+          "type": "string"
+        },
+        "scoring_criteria": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "answer_leakage_risk": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "information_value": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "unknown"
+          ]
+        },
+        "information_value_basis": {
+          "type": "string",
+          "enum": [
+            "expert_estimate",
+            "model_estimate",
+            "observational",
+            "empirical"
+          ]
+        },
+        "next_step_if_success": {
+          "type": "string"
+        },
+        "next_step_if_failure": {
+          "type": "string"
+        },
+        "notes_on_non_identifiability": {
+          "type": "string"
+        },
+        "evidence_level": {
+          "type": "string",
+          "enum": [
+            "theoretical_candidate",
+            "expert_reviewed",
+            "observed_in_real_students",
+            "empirically_tested",
+            "experimentally_supported"
+          ]
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "provenance_id",
+        "stem",
+        "probe_type",
+        "concept_ids",
+        "hypotheses_to_distinguish",
+        "correct_answer",
+        "answer_leakage_risk",
+        "information_value",
+        "information_value_basis",
+        "evidence_level"
+      ],
+      "additionalProperties": false
+    },
+    "student_observation": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "student_observation"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provenance_id": {
+          "type": "string"
+        },
+        "student_pseudonym": {
+          "type": "string"
+        },
+        "session_id": {
+          "type": "string"
+        },
+        "target_id": {
+          "type": "string"
+        },
+        "raw_response": {
+          "type": "string"
+        },
+        "correctness": {
+          "type": "string",
+          "enum": [
+            "correct",
+            "incorrect",
+            "partial",
+            "unscorable"
+          ]
+        },
+        "observed_error_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "observed_features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "evidence_quotes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "self_report_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "confidence_collection_method": {
+          "type": "string",
+          "enum": [
+            "explicit_numeric",
+            "explicit_verbal",
+            "not_collected"
+          ]
+        },
+        "assistance": {
+          "type": "string",
+          "enum": [
+            "none",
+            "hint",
+            "worked_example_seen",
+            "answer_shown",
+            "unknown"
+          ]
+        },
+        "latency_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "expert_authored",
+            "authentic_student",
+            "llm_synthetic",
+            "human_simulation",
+            "derived_variant",
+            "public_dataset",
+            "illustrative_synthetic"
+          ]
+        },
+        "modality": {
+          "type": "string",
+          "enum": [
+            "text",
+            "speech_transcription",
+            "handwriting",
+            "multimodal"
+          ]
+        },
+        "media_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "uri": {
+                "type": "string"
+              },
+              "media_type": {
+                "type": "string"
+              },
+              "transcription": {
+                "type": "string"
+              },
+              "processing_status": {
+                "type": "string",
+                "enum": [
+                  "unprocessed",
+                  "machine_transcribed",
+                  "human_verified"
+                ]
+              }
+            },
+            "required": [
+              "uri",
+              "media_type"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "evidence_notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "provenance_id",
+        "student_pseudonym",
+        "target_id",
+        "raw_response",
+        "correctness",
+        "assistance",
+        "source_type",
+        "modality"
+      ],
+      "additionalProperties": false
+    },
+    "cognitive_inference": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "cognitive_inference"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provenance_id": {
+          "type": "string"
+        },
+        "student_pseudonym": {
+          "type": "string"
+        },
+        "observation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "hypotheses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hypothesis_id": {
+                "type": "string"
+              },
+              "support": {
+                "type": "string",
+                "enum": [
+                  "favored",
+                  "plausible",
+                  "weak",
+                  "contradicted",
+                  "undetermined"
+                ]
+              },
+              "supporting_observation_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 0
+              },
+              "contradicting_observation_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 0
+              },
+              "confidence_score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "confidence_semantics": {
+                "type": "string",
+                "enum": [
+                  "uncalibrated_expert_rating",
+                  "uncalibrated_model_score",
+                  "calibrated_probability"
+                ]
+              },
+              "rationale": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "hypothesis_id",
+              "support",
+              "supporting_observation_ids",
+              "contradicting_observation_ids",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "concept_state_estimates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "concept_id": {
+                "type": "string"
+              },
+              "axis": {
+                "type": "string",
+                "enum": [
+                  "factual",
+                  "procedural",
+                  "conceptual",
+                  "reasoning",
+                  "transfer",
+                  "metacognitive"
+                ]
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "unknown",
+                  "emerging",
+                  "supported_once",
+                  "consistently_supported"
+                ]
+              },
+              "evidence_observation_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "minItems": 0
+              }
+            },
+            "required": [
+              "concept_id",
+              "axis",
+              "state",
+              "evidence_observation_ids"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "overall_certainty": {
+          "type": "string",
+          "enum": [
+            "insufficient",
+            "low",
+            "moderate",
+            "high"
+          ]
+        },
+        "uncertainty_reason": {
+          "type": "string"
+        },
+        "recommended_probe_id": {
+          "type": "string"
+        },
+        "decision_policy": {
+          "type": "string"
+        },
+        "known_limits": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "annotator_role": {
+          "type": "string",
+          "enum": [
+            "domain_expert",
+            "trained_annotator",
+            "model_candidate"
+          ]
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "provenance_id",
+        "student_pseudonym",
+        "observation_ids",
+        "hypotheses",
+        "overall_certainty",
+        "uncertainty_reason",
+        "annotator_role"
+      ],
+      "additionalProperties": false
+    },
+    "teaching_intervention": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "teaching_intervention"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provenance_id": {
+          "type": "string"
+        },
+        "target_hypothesis_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "diagnostic_question",
+            "minimal_hint",
+            "socratic_prompt",
+            "contrastive_case",
+            "counterexample",
+            "concept_explanation",
+            "worked_example",
+            "guided_practice",
+            "prerequisite_review",
+            "verification_question",
+            "wait_for_student",
+            "explicit_answer"
+          ]
+        },
+        "objective": {
+          "type": "string",
+          "enum": [
+            "diagnose",
+            "remediate",
+            "practice",
+            "verify",
+            "reflect"
+          ]
+        },
+        "learner_facing_message": {
+          "type": "string"
+        },
+        "teacher_rationale": {
+          "type": "string"
+        },
+        "scaffolding_level": {
+          "type": "string",
+          "enum": [
+            "none",
+            "minimal",
+            "moderate",
+            "full"
+          ]
+        },
+        "reveals_solution": {
+          "type": "boolean"
+        },
+        "risks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "expected_observable_signal": {
+          "type": "string"
+        },
+        "followup_probe_id": {
+          "type": "string"
+        },
+        "validation_level": {
+          "type": "string",
+          "enum": [
+            "theoretical_candidate",
+            "expert_reviewed",
+            "observed_in_real_students",
+            "empirically_tested",
+            "experimentally_supported"
+          ]
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "provenance_id",
+        "action",
+        "objective",
+        "learner_facing_message",
+        "teacher_rationale",
+        "scaffolding_level",
+        "reveals_solution",
+        "validation_level"
+      ],
+      "additionalProperties": false
+    },
+    "teaching_session": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "teaching_session"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provenance_id": {
+          "type": "string"
+        },
+        "student_pseudonym": {
+          "type": "string"
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "expert_authored",
+            "authentic_student",
+            "llm_synthetic",
+            "human_simulation",
+            "derived_variant",
+            "public_dataset",
+            "illustrative_synthetic"
+          ]
+        },
+        "item_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "learning_goals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "session_constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "time_budget_sec": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "turns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "turn_id": {
+                "type": "string"
+              },
+              "speaker": {
+                "type": "string",
+                "enum": [
+                  "student",
+                  "ai_tutor",
+                  "human_tutor",
+                  "system_instruction"
+                ]
+              },
+              "message": {
+                "type": "string"
+              },
+              "item_id": {
+                "type": "string"
+              },
+              "probe_id": {
+                "type": "string"
+              },
+              "observation_id": {
+                "type": "string"
+              },
+              "inference_id": {
+                "type": "string"
+              },
+              "intervention_id": {
+                "type": "string"
+              },
+              "visible_to_student": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "turn_id",
+              "speaker",
+              "message"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "observation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "inference_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "intervention_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "outcome_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "completion_reason": {
+          "type": "string",
+          "enum": [
+            "mastery_verified",
+            "session_end",
+            "time_budget",
+            "student_stopped",
+            "unknown"
+          ]
+        },
+        "discussion_notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "provenance_id",
+        "student_pseudonym",
+        "source_type",
+        "turns",
+        "completion_reason"
+      ],
+      "additionalProperties": false
+    },
+    "learning_outcome": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "learning_outcome"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provenance_id": {
+          "type": "string"
+        },
+        "student_pseudonym": {
+          "type": "string"
+        },
+        "session_id": {
+          "type": "string"
+        },
+        "target_item_id": {
+          "type": "string"
+        },
+        "concept_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "assessment_timing": {
+          "type": "string",
+          "enum": [
+            "pretest",
+            "immediate_posttest",
+            "delayed_posttest",
+            "transfer_test",
+            "retention_test",
+            "during_lesson"
+          ]
+        },
+        "delay_hours": {
+          "type": "number",
+          "minimum": 0
+        },
+        "independent_assessment": {
+          "type": "boolean"
+        },
+        "score": {
+          "type": "object",
+          "properties": {
+            "correctness": {
+              "type": "string",
+              "enum": [
+                "correct",
+                "incorrect",
+                "partial",
+                "unscorable"
+              ]
+            },
+            "score_fraction": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "explanation_quality": {
+              "type": "string",
+              "enum": [
+                "none",
+                "weak",
+                "adequate",
+                "strong",
+                "not_assessed"
+              ]
+            },
+            "transfer_level": {
+              "type": "string",
+              "enum": [
+                "none",
+                "near",
+                "far",
+                "not_assessed"
+              ]
+            }
+          },
+          "required": [
+            "correctness",
+            "explanation_quality",
+            "transfer_level"
+          ],
+          "additionalProperties": false
+        },
+        "support_received_during_assessment": {
+          "type": "string",
+          "enum": [
+            "none",
+            "hint",
+            "solution",
+            "unknown"
+          ]
+        },
+        "observed_evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "causal_attribution": {
+          "type": "string",
+          "enum": [
+            "not_assessed",
+            "observational_association",
+            "randomized_estimate"
+          ]
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "provenance_id",
+        "student_pseudonym",
+        "session_id",
+        "concept_ids",
+        "assessment_timing",
+        "independent_assessment",
+        "score",
+        "causal_attribution"
+      ],
+      "additionalProperties": false
+    },
+    "teaching_preference": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "teaching_preference"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "provenance_id": {
+          "type": "string"
+        },
+        "context_observation_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "context_inference_id": {
+          "type": "string"
+        },
+        "candidate_a": {
+          "type": "object",
+          "properties": {
+            "candidate_id": {
+              "type": "string"
+            },
+            "action": {
+              "type": "string",
+              "enum": [
+                "diagnostic_question",
+                "minimal_hint",
+                "socratic_prompt",
+                "contrastive_case",
+                "counterexample",
+                "concept_explanation",
+                "worked_example",
+                "guided_practice",
+                "prerequisite_review",
+                "verification_question",
+                "wait_for_student",
+                "explicit_answer"
+              ]
+            },
+            "message": {
+              "type": "string"
+            },
+            "teaching_rationale": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "candidate_id",
+            "action",
+            "message"
+          ],
+          "additionalProperties": false
+        },
+        "candidate_b": {
+          "type": "object",
+          "properties": {
+            "candidate_id": {
+              "type": "string"
+            },
+            "action": {
+              "type": "string",
+              "enum": [
+                "diagnostic_question",
+                "minimal_hint",
+                "socratic_prompt",
+                "contrastive_case",
+                "counterexample",
+                "concept_explanation",
+                "worked_example",
+                "guided_practice",
+                "prerequisite_review",
+                "verification_question",
+                "wait_for_student",
+                "explicit_answer"
+              ]
+            },
+            "message": {
+              "type": "string"
+            },
+            "teaching_rationale": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "candidate_id",
+            "action",
+            "message"
+          ],
+          "additionalProperties": false
+        },
+        "choice": {
+          "type": "string",
+          "enum": [
+            "a",
+            "b",
+            "tie",
+            "both_unacceptable"
+          ]
+        },
+        "rating_rubric": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "dimension": {
+                "type": "string",
+                "enum": [
+                  "mathematical_correctness",
+                  "diagnostic_information",
+                  "evidence_grounding",
+                  "uncertainty_calibration",
+                  "student_agency",
+                  "hint_appropriateness",
+                  "clarity",
+                  "learning_alignment",
+                  "non_leakage",
+                  "fairness"
+                ]
+              },
+              "candidate_scores": {
+                "type": "object",
+                "properties": {
+                  "a": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4
+                  },
+                  "b": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 4
+                  }
+                },
+                "required": [
+                  "a",
+                  "b"
+                ],
+                "additionalProperties": false
+              },
+              "justification": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "dimension",
+              "candidate_scores",
+              "justification"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "decision_explanation": {
+          "type": "string"
+        },
+        "assessor_role": {
+          "type": "string",
+          "enum": [
+            "domain_expert",
+            "trained_annotator",
+            "student_outcome_supported",
+            "model_candidate"
+          ]
+        },
+        "evidence_level": {
+          "type": "string",
+          "enum": [
+            "theoretical_candidate",
+            "expert_reviewed",
+            "observed_in_real_students",
+            "empirically_tested",
+            "experimentally_supported"
+          ]
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "provenance_id",
+        "context_observation_ids",
+        "candidate_a",
+        "candidate_b",
+        "choice",
+        "rating_rubric",
+        "decision_explanation",
+        "assessor_role",
+        "evidence_level"
+      ],
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "record_type": {
+          "const": "provenance"
+        },
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "origin_type": {
+          "type": "string",
+          "enum": [
+            "expert_authored",
+            "authentic_student",
+            "llm_synthetic",
+            "human_simulation",
+            "derived_variant",
+            "public_dataset",
+            "illustrative_synthetic"
+          ]
+        },
+        "source_description": {
+          "type": "string"
+        },
+        "source_locator": {
+          "type": "string"
+        },
+        "creator_role": {
+          "type": "string",
+          "enum": [
+            "math_expert",
+            "math_education_expert",
+            "annotator",
+            "llm",
+            "researcher",
+            "unknown"
+          ]
+        },
+        "generator_model": {
+          "type": "string"
+        },
+        "generator_prompt_version": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "consent_status": {
+          "type": "string",
+          "enum": [
+            "documented",
+            "not_applicable",
+            "pending",
+            "unknown"
+          ]
+        },
+        "privacy_review": {
+          "type": "string",
+          "enum": [
+            "passed",
+            "not_applicable",
+            "pending",
+            "failed"
+          ]
+        },
+        "validation_level": {
+          "type": "string",
+          "enum": [
+            "theoretical_candidate",
+            "expert_reviewed",
+            "observed_in_real_students",
+            "empirically_tested",
+            "experimentally_supported"
+          ]
+        },
+        "review_status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "expert_approved",
+            "empirically_checked",
+            "rejected"
+          ]
+        },
+        "reviewer_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 0
+        },
+        "created_date": {
+          "type": "string"
+        },
+        "version_note": {
+          "type": "string"
+        },
+        "permitted_uses": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "training",
+              "evaluation",
+              "research",
+              "redistribution",
+              "internal_only"
+            ]
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "record_type",
+        "schema_version",
+        "id",
+        "origin_type",
+        "source_description",
+        "creator_role",
+        "license",
+        "consent_status",
+        "privacy_review",
+        "validation_level",
+        "review_status",
+        "created_date",
+        "permitted_uses"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

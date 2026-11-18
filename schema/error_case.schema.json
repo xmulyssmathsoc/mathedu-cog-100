@@ -1,0 +1,326 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MathEdu-Cog ErrorCase Supplement v1.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "item_id",
+    "item_family_id",
+    "domain_code",
+    "domain",
+    "stage",
+    "difficulty",
+    "split",
+    "title",
+    "error_tag",
+    "problem",
+    "reference_answer",
+    "simulated_student_response",
+    "first_invalid_step",
+    "observed_error",
+    "candidate_cognitive_explanations",
+    "diagnosis",
+    "correction",
+    "teaching_intervention",
+    "transfer_check",
+    "pseudo_understanding_check",
+    "related_error_pattern_ids",
+    "provenance_id",
+    "provenance",
+    "evidence_level",
+    "approval"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "pattern": "^EC-[0-9]{3}$"
+    },
+    "item_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}-[0-9]{3}$"
+    },
+    "item_family_id": {
+      "type": "string"
+    },
+    "domain_code": {
+      "type": "string",
+      "enum": [
+        "NUM",
+        "ALG",
+        "FUN",
+        "GEO",
+        "TRI",
+        "PRO",
+        "STA",
+        "CAL",
+        "LIN",
+        "LOG"
+      ]
+    },
+    "domain": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "split": {
+      "type": "string",
+      "enum": [
+        "train",
+        "validation",
+        "synthetic_test"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5
+    },
+    "error_tag": {
+      "type": "string",
+      "minLength": 3
+    },
+    "problem": {
+      "type": "string",
+      "minLength": 10
+    },
+    "reference_answer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "simulated_student_response": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "steps",
+        "wrong_answer",
+        "first_invalid_step_index",
+        "scenario_intent"
+      ],
+      "properties": {
+        "source_type": {
+          "const": "constructed_synthetic"
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string",
+            "minLength": 5
+          }
+        },
+        "wrong_answer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "first_invalid_step_index": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "scenario_intent": {
+          "const": "illustrate_a_plausible_error_not_establish_its_real_frequency"
+        }
+      }
+    },
+    "first_invalid_step": {
+      "type": "string",
+      "minLength": 5
+    },
+    "observed_error": {
+      "type": "string",
+      "minLength": 10
+    },
+    "candidate_cognitive_explanations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "leading_hypothesis",
+        "alternative_explanation",
+        "possible_counterevidence",
+        "inference_status"
+      ],
+      "properties": {
+        "leading_hypothesis": {
+          "type": "string",
+          "minLength": 10
+        },
+        "alternative_explanation": {
+          "type": "string",
+          "minLength": 10
+        },
+        "possible_counterevidence": {
+          "type": "string",
+          "minLength": 10
+        },
+        "inference_status": {
+          "const": "hypothesis_not_diagnosis"
+        }
+      }
+    },
+    "diagnosis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "probe",
+        "mathematically_correct_response",
+        "hypothesized_misconception_response",
+        "interpretation_caution"
+      ],
+      "properties": {
+        "probe": {
+          "type": "string",
+          "minLength": 10
+        },
+        "mathematically_correct_response": {
+          "type": "string",
+          "minLength": 5
+        },
+        "hypothesized_misconception_response": {
+          "type": "string",
+          "minLength": 5
+        },
+        "interpretation_caution": {
+          "type": "string"
+        }
+      }
+    },
+    "correction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "solution_steps",
+        "resolution"
+      ],
+      "properties": {
+        "solution_steps": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string",
+            "minLength": 10
+          }
+        },
+        "resolution": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "teaching_intervention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minimal_hint",
+        "feedback"
+      ],
+      "properties": {
+        "minimal_hint": {
+          "type": "string",
+          "minLength": 5
+        },
+        "feedback": {
+          "type": "string",
+          "minLength": 10
+        }
+      }
+    },
+    "transfer_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "problem",
+        "answer",
+        "rationale",
+        "assessed_status"
+      ],
+      "properties": {
+        "problem": {
+          "type": "string",
+          "minLength": 10
+        },
+        "answer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 5
+        },
+        "assessed_status": {
+          "const": "not_administered"
+        }
+      }
+    },
+    "pseudo_understanding_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "risk",
+        "independent_evidence_needed",
+        "status"
+      ],
+      "properties": {
+        "risk": {
+          "type": "string",
+          "minLength": 10
+        },
+        "independent_evidence_needed": {
+          "type": "string",
+          "minLength": 10
+        },
+        "status": {
+          "const": "untested_synthetic_risk"
+        }
+      }
+    },
+    "related_error_pattern_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance_id": {
+      "const": "PROV-GPT6-CURATED-20261117"
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "generation",
+        "real_students",
+        "early_weak_models_executed",
+        "independent_human_review",
+        "math_check_scope"
+      ],
+      "properties": {
+        "generation": {
+          "const": "GPT-6 authored illustrative cases with code validation"
+        },
+        "real_students": {
+          "const": false
+        },
+        "early_weak_models_executed": {
+          "const": false
+        },
+        "independent_human_review": {
+          "const": false
+        },
+        "math_check_scope": {
+          "const": "one_or_more_targeted_assertions_per_case"
+        }
+      }
+    },
+    "evidence_level": {
+      "const": "synthetic_theoretical_candidate"
+    },
+    "approval": {
+      "const": "pending_independent_review"
+    }
+  }
+}

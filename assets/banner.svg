@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="336" viewBox="0 0 1200 336" role="img" aria-label="MathEdu-Cog 100 · Mathematics × Cognition × AI Education">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#091629"/><stop offset=".56" stop-color="#103252"/><stop offset="1" stop-color="#0b4d53"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#77efd7"/><stop offset="1" stop-color="#88c8ff"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#30bfa6" stop-opacity=".29"/><stop offset="1" stop-color="#30bfa6" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M 36 0 H0 V36" fill="none" stroke="#fff" stroke-opacity=".055" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="1200" height="336" rx="26" fill="url(#bg)"/>
+  <rect width="1200" height="336" rx="26" fill="url(#grid)"/>
+  <circle cx="995" cy="160" r="230" fill="url(#glow)"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" fill="#fff">
+    <rect x="50" y="43" width="138" height="30" rx="15" fill="#9be8dc" fill-opacity=".16" stroke="#8fe4d8" stroke-opacity=".45"/>
+    <text x="69" y="64" font-size="13" letter-spacing="2" font-weight="700" fill="#b4f5e9">XMU  ·  LYS²</text>
+    <text x="50" y="156" font-size="65" font-weight="760" letter-spacing="-1.5">MathEdu<tspan fill="url(#accent)">-Cog 100</tspan></text>
+    <text x="52" y="203" font-size="22" fill="#b8d4e6" letter-spacing=".8">Mathematics × Cognition × AI Education</text>
+    <path d="M52 229 H575" stroke="#92dfd0" stroke-opacity=".55"/>
+    <text x="52" y="268" font-size="16" fill="#d8e9ef" letter-spacing="1.0">100 questions    /    30 error cases    /    10 domains</text>
+    <text x="52" y="298" font-size="13" fill="#a2c5d7">A synthetic research seed dataset · v1.1</text>
+  </g>
+  <g transform="translate(755 39)">
+    <rect x="0" y="0" width="365" height="250" rx="22" fill="#fff" fill-opacity=".055" stroke="#d1fff1" stroke-opacity=".19"/>
+    <g fill="none" stroke="#79ddcc" stroke-opacity=".67" stroke-width="2">
+      <path d="M38 192 Q100 195 136 138 T243 98 T331 46"/>
+      <path d="M36 198 L338 198 M72 215 L72 29" stroke="#b5d7ec" stroke-opacity=".42" stroke-width="1.3"/>
+      <path d="M70 73 Q112 159 172 151 T277 103" stroke="#90aafe" stroke-opacity=".8"/>
+    </g>
+    <g fill="#a9f7e6" stroke="#092b36" stroke-width="3"><circle cx="136" cy="138" r="7"/><circle cx="244" cy="98" r="7"/><circle cx="278" cy="102" r="7"/></g>
+    <g fill="#c7e4ef" font-family="monospace" font-size="14"><text x="99" y="45">f(x)</text><text x="275" y="55">∑ ∞</text><text x="110" y="236">learn · diagnose · adapt</text></g>
+  </g>
+</svg>

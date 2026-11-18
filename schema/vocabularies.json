@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0.0",
+  "code_lists": {
+    "education_stage": [
+      "primary",
+      "middle_school",
+      "high_school",
+      "undergraduate",
+      "graduate",
+      "cross_level"
+    ],
+    "math_domain": [
+      "arithmetic",
+      "algebra",
+      "geometry",
+      "functions",
+      "calculus",
+      "analysis",
+      "probability_statistics",
+      "linear_algebra",
+      "discrete_math",
+      "mathematical_modeling",
+      "other"
+    ],
+    "cognitive_process": [
+      "recall",
+      "procedural",
+      "conceptual",
+      "representation",
+      "reasoning",
+      "proof",
+      "near_transfer",
+      "far_transfer",
+      "metacognition",
+      "formulate",
+      "employ",
+      "interpret_evaluate"
+    ],
+    "evidence_level": [
+      "theoretical_candidate",
+      "expert_reviewed",
+      "observed_in_real_students",
+      "empirically_tested",
+      "experimentally_supported"
+    ],
+    "origin_type": [
+      "expert_authored",
+      "authentic_student",
+      "llm_synthetic",
+      "human_simulation",
+      "derived_variant",
+      "public_dataset",
+      "illustrative_synthetic"
+    ],
+    "error_category": [
+      "calculation_slip",
+      "sign_error",
+      "algebraic_manipulation",
+      "condition_ignored",
+      "rule_misapplication",
+      "logical_implication",
+      "boundary_ignored",
+      "representation_translation",
+      "proof_gap",
+      "formula_recall",
+      "incorrect_generalization",
+      "other"
+    ],
+    "hypothesis_kind": [
+      "concept_misconception",
+      "pseudo_understanding",
+      "prerequisite_gap",
+      "procedural_gap",
+      "transient_slip",
+      "sound_understanding",
+      "insufficient_evidence"
+    ],
+    "pseudo_understanding_subtype": [
+      "rote_recall",
+      "template_matching",
+      "surface_pattern",
+      "false_generalization",
+      "fragile_transfer",
+      "unjustified_fluency",
+      "hindsight_illusion",
+      "answer_only"
+    ],
+    "probe_type": [
+      "explain_reason",
+      "explain_counterexample",
+      "boundary_case",
+      "near_transfer",
+      "far_transfer",
+      "compare_contrast",
+      "error_analysis",
+      "construct_example",
+      "prove_or_disprove",
+      "alternative_representation",
+      "teach_back",
+      "confidence_calibration"
+    ],
+    "teaching_action": [
+      "diagnostic_question",
+      "minimal_hint",
+      "socratic_prompt",
+      "contrastive_case",
+      "counterexample",
+      "concept_explanation",
+      "worked_example",
+      "guided_practice",
+      "prerequisite_review",
+      "verification_question",
+      "wait_for_student",
+      "explicit_answer"
+    ],
+    "assessment_timing": [
+      "pretest",
+      "immediate_posttest",
+      "delayed_posttest",
+      "transfer_test",
+      "retention_test",
+      "during_lesson"
+    ],
+    "concept_relation": [
+      "prerequisite_of",
+      "part_of",
+      "related_to",
+      "generalizes",
+      "contrasts_with"
+    ],
+    "preference_dimension": [
+      "mathematical_correctness",
+      "diagnostic_information",
+      "evidence_grounding",
+      "uncertainty_calibration",
+      "student_agency",
+      "hint_appropriateness",
+      "clarity",
+      "learning_alignment",
+      "non_leakage",
+      "fairness"
+    ]
+  },
+  "labels_zh": {
+    "evidence_level": {
+      "theoretical_candidate": "理论或生成假设，未核验",
+      "expert_reviewed": "数学教育专家审核",
+      "observed_in_real_students": "真实学生数据中观察到",
+      "empirically_tested": "定量测试或测量验证",
+      "experimentally_supported": "有实验比较支持（需记录设计）"
+    },
+    "hypothesis_kind": {
+      "concept_misconception": "概念误区",
+      "pseudo_understanding": "疑似伪理解",
+      "prerequisite_gap": "前置知识欠缺",
+      "procedural_gap": "程序性能力不足",
+      "transient_slip": "偶发失误",
+      "sound_understanding": "有实质理解证据",
+      "insufficient_evidence": "目前无法判别"
+    },
+    "origin_type": {
+      "expert_authored": "专家编写",
+      "authentic_student": "真实学生数据",
+      "llm_synthetic": "AI 生成",
+      "human_simulation": "人类模拟",
+      "derived_variant": "派生变式",
+      "public_dataset": "公开数据集",
+      "illustrative_synthetic": "教学用途的演示样例"
+    },
+    "pseudo_understanding_subtype": {
+      "rote_recall": "背诵结论",
+      "template_matching": "套固定模板",
+      "surface_pattern": "依赖表面线索",
+      "false_generalization": "过度概括",
+      "fragile_transfer": "无法迁移",
+      "unjustified_fluency": "表达流畅但证据不足",
+      "hindsight_illusion": "看懂后误以为能独立做",
+      "answer_only": "结论正确但推理不可见"
+    }
+  },
+  "rules": [
+    "误差类别(error_pattern)是可观察的表现；认知假设(cognitive_hypothesis)是待验证解释，不得自动互相推出。",
+    "真实学生的数据必须保留原话及证据引用；不得将推断写成已证实的内在状态。",
+    "只有经过校准的数据才允许把置信分数解释为概率；若未校准，使用语义等级。",
+    "学生明确自报的信心与标注者推测信心是不同字段；禁止用语气/流畅度冒充自报信心。",
+    "学生无法回答诊断题也可能受阅读表达、焦虑和情境影响；保留替代解释。",
+    "数据源必须标注真实、专家编写、模拟还是模型生成；不能用生成样本冒充真实教育证据。",
+    "偏好标注评估行动是否合适，不等于该行动已在实验中证实提升长期学习。",
+    "按题目族、学生、概念簇划分评测，避免近重复项泄漏。"
+  ]
+}

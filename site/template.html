@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="description" content="MathEdu-Cog 100：100道数学题、30个模拟错误案例、认知诊断、教学追问与机器学习训练数据。"/>
+  <meta name="theme-color" content="#0c2437"/>
+  <title>MathEdu-Cog 100 · 数学认知与 AI 教育数据集</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="assets/site.css"/>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-content">
+      <a class="brand" href="#top" aria-label="MathEdu-Cog 100 首页">
+        <span class="brand-mark">∑</span><span>MathEdu<span class="brand-accent">/Cog</span> <small>100</small></span>
+      </a>
+      <nav aria-label="主导航" class="nav">
+        <a href="#explore">题目探索</a><a href="#method">数据结构</a><a href="#about">关于项目</a>
+        <a class="nav-gh" href="https://github.com/xmulyssmathsoc" target="_blank" rel="noopener">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-content">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="pulse"></span> XMU LYS² MathSoc · AI FOR MATHEMATICS EDUCATION</span>
+          <h1>让 AI 看见<br/><span class="grad">答案背后的理解。</span></h1>
+          <p>一套为数学教育 AI 打造的认知诊断种子数据集：<strong>不仅关注学生是否答对，还关注为什么这样回答，以及接下来应该问什么。</strong></p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#explore">探索数学题库 <span>↗</span></a><a class="btn btn-ghost" href="https://github.com/xmulyssmathsoc" target="_blank" rel="noopener">了解社团 ↗</a></div>
+          <div class="hero-meta"><span><i></i> AI 合成样本</span><span><i></i> 认知诊断</span><span><i></i> 可复现数据结构</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="floating floating-a"><span class="mini-kicker">QUESTION 024</span><strong>f(x) = |x|</strong><small>连续 ≠ 可导</small></div>
+          <div class="floating floating-b"><span class="mini-kicker">COGNITIVE SIGNAL</span><strong>概念边界</strong><small>引导追问 → 验证理解</small></div>
+          <div class="floating floating-c"><span class="mini-kicker">LEARNING LOOP</span><div class="steps"><b>观察</b><em>→</em><b>诊断</b><em>→</em><b>引导</b></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="metrics wrap" aria-label="数据集统计">
+      <div class="metric"><strong>100<span>题</span></strong><p>核心数学问题</p></div>
+      <div class="metric"><strong>30<span>例</span></strong><p>详细模拟错误案例</p></div>
+      <div class="metric"><strong>10<span>域</span></strong><p>数学知识领域</p></div>
+      <div class="metric"><strong>80<span>个</span></strong><p>认知概念节点</p></div>
+    </section>
+
+    <section class="section wrap" id="explore">
+      <div class="section-intro"><div><span class="section-overline">THE DATASET</span><h2>探索题库</h2><p>按领域、难度和关键词检索，点开卡片查看完整的数学与认知标注。</p></div><span class="soft-pill" id="result-counter">100 道题目</span></div>
+      <div class="explorer">
+        <div class="explorer-header">
+          <div class="tab-switch" role="tablist" aria-label="内容类型"><button id="tab-items" role="tab" aria-selected="true" class="active" data-mode="items">数学题目 <small>100</small></button><button id="tab-errors" role="tab" aria-selected="false" data-mode="errors">错误案例 <small>30</small></button></div>
+          <div class="filter-row"><label class="search-wrapper"><span>⌕</span><input id="search" type="search" placeholder="搜索题目、误区、编号…" aria-label="搜索题目"/></label><select id="domain" aria-label="按领域筛选"><option value="">全部领域</option></select><select id="difficulty" aria-label="按难度筛选"><option value="">全部难度</option><option value="1">D1 · 基础</option><option value="2">D2 · 常规</option><option value="3">D3 · 综合</option><option value="4">D4 · 进阶</option><option value="5">D5 · 挑战</option></select><button class="reset" id="reset" title="清除筛选">重置</button></div>
+        </div>
+        <div class="cards" id="cards" aria-live="polite"></div>
+        <div class="more-wrap"><button id="show-more" class="btn btn-more">显示更多 ↓</button></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="method">
+      <div class="section-intro"><div><span class="section-overline">DESIGN PRINCIPLES</span><h2>从回答到认知证据</h2><p>标注不止于错误答案，而是把观察、假设、教学决策和验证严格区分。</p></div></div>
+      <div class="method-grid">
+        <div class="method-card"><span>01 / OBSERVE</span><div class="method-symbol">◉</div><h3>观察行为</h3><p>保留学生的具体回答与推理步骤，记录第一处错误和可观察的表现。</p></div>
+        <div class="method-card"><span>02 / HYPOTHESIZE</span><div class="method-symbol">◇</div><h3>提出假设</h3><p>描述候选误区、替代解释与不确定性，避免把单次错误等同于认知诊断。</p></div>
+        <div class="method-card"><span>03 / DIAGNOSE</span><div class="method-symbol">↗</div><h3>设计追问</h3><p>通过对比题、迁移题和反例，获取能够区分不同认知状态的证据。</p></div>
+        <div class="method-card"><span>04 / ADAPT</span><div class="method-symbol">∞</div><h3>调整教学</h3><p>给出最小提示、纠错引导与独立验证任务，避免过早泄露标准答案。</p></div>
+      </div>
+    </section>
+
+    <section class="section wrap about-section" id="about">
+      <div class="about-visual"><span>MATH</span><span>EDUCATION</span><span>COGNITION</span></div>
+      <div class="about-copy"><span class="section-overline">OPEN RESEARCH SEED</span><h2>让数学教育<br/>拥有更细致的数据基础</h2><p>MathEdu-Cog 100 是面向数学教育 AI 的合成研究种子数据集，由 100 道数学题与 30 个深入错误案例构成，覆盖认知诊断、教学追问、伪理解风险和训练视图。</p><p>现阶段全部学生行为均为 AI 构造或脚本化模拟，<strong>并非真实学生实验，也不代表已经验证的教学效果。</strong>我们希望未来通过独立数学审核和真实学习数据校准，将其发展为更可信赖的教育研究工具。</p><a href="https://github.com/xmulyssmathsoc" target="_blank" rel="noopener">XMU LYS² MathSoc ↗</a></div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><div><b>MathEdu<span>/Cog</span> 100</b><p>Mathematics · Cognition · AI Education</p></div><p>v1.1 · Synthetic research seed · No real student records<br/>Made for exploring how AI can teach mathematics better.</p></div></footer>
+  <div id="overlay" class="overlay" hidden><div class="overlay-backdrop" data-close="1"></div><div class="detail" role="dialog" aria-modal="true" aria-label="详细内容"><div class="detail-toolbar"><span id="detail-id"></span><button id="detail-close" aria-label="关闭详情">✕</button></div><div id="detail-content" class="detail-content"></div></div></div>
+  <script id="site-data" type="application/json">__INLINE_JSON__</script>
+  <script src="assets/site.js" defer></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</body>
+</html>

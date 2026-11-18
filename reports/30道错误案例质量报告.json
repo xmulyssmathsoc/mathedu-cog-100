@@ -1,0 +1,63 @@
+{
+  "project": "MathEdu-Cog 100 + 30 Error Cases",
+  "version": "1.1.0",
+  "build_date": "2026-11-17",
+  "status": "passed",
+  "original_question_count": 100,
+  "supplemental_detailed_error_case_count": 30,
+  "original_record_count": 2081,
+  "supplemental_record_count": 30,
+  "logical_annotation_records_count": 2111,
+  "additional_provenance_metadata_rows": 1,
+  "cases_per_domain": {
+    "NUM": 3,
+    "ALG": 3,
+    "FUN": 3,
+    "GEO": 3,
+    "TRI": 3,
+    "PRO": 3,
+    "STA": 3,
+    "CAL": 3,
+    "LIN": 3,
+    "LOG": 3
+  },
+  "cases_by_difficulty": {
+    "D1": 4,
+    "D3": 8,
+    "D4": 7,
+    "D2": 7,
+    "D5": 4
+  },
+  "cases_by_partition": {
+    "train": 25,
+    "synthetic_test": 2,
+    "validation": 3
+  },
+  "new_training_views_all_splits": {
+    "analysis_sft": 30,
+    "tutor_sft": 30
+  },
+  "new_training_views_train_only": {
+    "analysis_sft": 25,
+    "tutor_sft": 25
+  },
+  "math_assertions": {
+    "original_item_targeted_checks": 100,
+    "new_error_case_targeted_checks": 30,
+    "limitation": "Targeted checks do not certify full proof correctness or educational construct validity"
+  },
+  "source_assurance": {
+    "real_student_records": 0,
+    "early_small_model_runs": 0,
+    "expert_independently_reviewed": 0,
+    "new_cases_all_llm_constructed": true
+  },
+  "structural_assertions_executed": 4532,
+  "issues": [],
+  "synthetic_test_warning": "All test records are synthetic and share authoring process; not a real educational benchmark",
+  "recommendations": [
+    "Review mathematical explanations independently before high-stakes teaching",
+    "Calibrate misconception frequencies and diagnostic validity using real learner data",
+    "Do not train on exports/validation or exports/synthetic_test"
+  ]
+}
